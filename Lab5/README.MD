@@ -186,7 +186,6 @@ $_REQUEST — объединяет $_GET, $_POST и $_COOKIE. Менее без�
     echo "<p>Имя: <b>$username4</b></p>";
     echo "<p>Результат: <b>$score / 3</b></p>";
     }
-```
     ?>
     <form method="POST">
         <label>Имя: <input type="text" name="username4"></label><br>

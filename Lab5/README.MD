@@ -66,8 +66,9 @@ __Цель:__ Познакомиться с глобальной перемен�
 
 ```
 
-Скриншот:
-
+Скриншот: 
+![image](images/exc1.1.png)
+![image](images/exc1.2.png)
 
 2. Получение данных с различных контроллеров
 
@@ -104,7 +105,7 @@ __Цель:__ Познакомиться с глобальной перемен�
     </form>
 ``` 
 
-Скриншот:
+Скриншот:![image](images/exc2.1.png)
 
 3. Создание, обработка и валидация форм
 Объясните, чем отличаются глобальные переменные $_REQUEST и $_POST.
@@ -114,7 +115,9 @@ $_POST — содержит только данные, отправленные 
 $_REQUEST — объединяет $_GET, $_POST и $_COOKIE. Менее безопасен, может содержать неожиданные данные.
 
 ```php
+
 <?php
+
     $errors3 = [];
     $name3 = $_POST['name3'] ?? '';
     $mail3 = $_POST['mail3'] ?? '';
@@ -151,32 +154,39 @@ $_REQUEST — объединяет $_GET, $_POST и $_COOKIE. Менее без�
         <label><input type="checkbox" name="agree3" <?= $agree3 ? 'checked' : '' ?>> Do you agree with data processing?</label><br>
         <input type="submit" name="submit3" value="Submit">
     </form>
+
 ```
 
 
-Скриншот: 
+Скриншот:   ![image](images/exc3.1.png)
+            ![image](images/exc3.2.png)
 
 
 4. Создание теста
 
-```php 
+```php
 
 <h1>Задание 4: Форма теста</h1>
     <?php
+
     if (isset($_POST["submit4"])) {
-        $username4 = $_POST["username4"] ?? '';
-        $q1 = $_POST["q1"] ?? '';
-        $q2 = $_POST["q2"] ?? [];
-        $q3 = trim($_POST["q3"] ?? '');
-        $score = 0;
+    $username4 = $_POST["username4"] ?? '';
+    if (is_array($username4)) $username4 = ''; // защита
 
-        if ($q1 === "интерпретируемым") $score++;
-        if (in_array("$_POST", $q2) && in_array("$_SERVER", $q2) && count($q2) === 2) $score++;
-        if ($q3 === "$") $score++;
+    $q1 = $_POST["q1"] ?? '';
+    $q2 = $_POST["q2"] ?? [];
+    $q3 = trim($_POST["q3"] ?? '');
 
-        echo "<p>Имя: <b>$username4</b></p>";
-        echo "<p>Результат: <b>$score / 3</b></p>";
+    $score = 0;
+
+    if ($q1 === "интерпретируемым") $score++;
+    if (in_array('$_POST', $q2) && in_array('$_SERVER', $q2) && count($q2) === 2) $score++;
+    if ($q3 === "$") $score++;
+
+    echo "<p>Имя: <b>$username4</b></p>";
+    echo "<p>Результат: <b>$score / 3</b></p>";
     }
+```
     ?>
     <form method="POST">
         <label>Имя: <input type="text" name="username4"></label><br>
@@ -187,7 +197,7 @@ $_REQUEST — объединяет $_GET, $_POST и $_COOKIE. Менее без�
 
         <p>2. Какие переменные являются суперглобальными?</p>
         <label><input type="checkbox" name="q2[]" value="$_POST"> $_POST</label>
-        <label><input type="checkbox" name="q2[]" value="$GLOBAL"> $GLOBAL</label>
+        <label><input type="checkbox" name="q2[]" value="$GLOBALS"> $GLOBALS</label>
         <label><input type="checkbox" name="q2[]" value="$_SERVER"> $_SERVER</label><br>
 
         <p>3. Символ для объявления переменной в PHP?</p>
@@ -196,9 +206,10 @@ $_REQUEST — объединяет $_GET, $_POST и $_COOKIE. Менее без�
         <input type="submit" name="submit4" value="Завершить тест">
     </form>
 
-    ```
 
-    Скриншот: 
+
+    Скриншот:
+    ![image](images/exc4.1.png)
 
 
 ## 5. Список использованных источников

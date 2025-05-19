@@ -206,7 +206,7 @@ $_REQUEST — объединяет $_GET, $_POST и $_COOKIE. Менее без�
         <input type="submit" name="submit4" value="Завершить тест">
     </form>
 
-
+```
 
     Скриншот:
     ![image](images/exc4.1.png)

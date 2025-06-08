@@ -1,0 +1,28 @@
+[
+    {
+        "question": "Какой язык серверный?",
+        "type": "single",
+        "answers": [
+            "HTML",
+            "CSS",
+            "PHP",
+            "JS"
+        ],
+        "correct": [
+            1
+        ]
+    },
+    {
+        "question": "Что относится к суперглобальным переменным в PHP?",
+        "type": "multiple",
+        "answers": [
+            "$_POST",
+            "$_SESSION",
+            "$_COOKIE",
+            "$_RANDOM"
+        ],
+        "correct": [
+           0,1,2
+        ]
+    }
+]
